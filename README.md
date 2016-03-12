@@ -6,7 +6,7 @@ Binding to
 [Example
 application](https://github.com/dannywillems/ocaml-cordova-plugin-camera-example).
 
-## What does cordova-plugin-device-motion do ?
+## What does cordova-plugin-camera do ?
 
 ```
 This plugin defines a global navigator.camera object, which provides an API for
