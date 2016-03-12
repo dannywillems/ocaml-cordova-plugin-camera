@@ -35,7 +35,6 @@ event is handled, eg
 ```OCaml
 let on_device_ready =
   let camera = Camera.camera () in
-  ("navigation.accelerometer") in
   (* Some code *)
 
 let _ =
