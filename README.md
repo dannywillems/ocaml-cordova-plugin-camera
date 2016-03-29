@@ -15,6 +15,19 @@ taking pictures and for choosing images from the system's image library.
 
 Source: [cordova-plugin-camera](https://github.com/apache/cordova-plugin-camera)
 
+## Repository branches and tags
+
+We are migrating bindings from
+[js_of_ocaml](https://github.com/ocsigen/js_of_ocaml) (low level bindings) to
+[gen_js_api](https://github.com/lexifi/gen_js_api) (high level bindings).
+
+The gen_js_api binding allows to use *pure* ocaml types (you don't have to use
+the ## syntax from js_of_ocaml or Js.string type but only # and string type).
+
+The js_of_ocaml version is available in the branch
+[*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-barcodescanner/tree/js_of_ocaml)
+but we **recommend** to use the gen_js_api version which is the master branch.
+
 ## How to use ?
 
 TODO
