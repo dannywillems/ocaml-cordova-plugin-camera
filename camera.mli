@@ -203,6 +203,6 @@ class camera : Ojs.t ->
 
 (* -------------------------------------------------------------------------- *)
 (* Get the navigator.camera object *)
-val camera : unit -> camera
+val t : unit -> camera
 [@@js.get "navigator.camera"]
 (* -------------------------------------------------------------------------- *)
