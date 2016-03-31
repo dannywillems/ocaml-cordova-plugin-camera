@@ -33,7 +33,7 @@ binding to the *navigator.camera* object. You must call it when the deviceready
 event is handled, eg
 
 ```OCaml
-let on_device_ready =
+let on_device_ready _ =
   let camera = Camera.camera () in
   (* Some code *)
 
