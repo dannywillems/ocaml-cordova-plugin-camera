@@ -41,13 +41,13 @@ We don't provide a *navigator.camera* variable in this plugin (as said in the of
 documentation on js_of_ocaml). If we did, *navigator.camera* will be set to **undefined**
 because the *navigator.camera* object doesn't exist when we create the variable.
 
-Instead, we provide a function *camera* of type *unit -> camera Js.t* which creates the
+Instead, we provide a function *Camera.t* of type *unit -> camera* which creates the
 binding to the *navigator.camera* object. You must call it when the deviceready
 event is handled, eg
 
 ```OCaml
-let on_device_ready =
-  let camera = Camera.camera () in
+let on_device_ready _ =
+  let camera = Camera.t () in
   (* Some code *)
 
 let _ =
