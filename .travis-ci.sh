@@ -14,7 +14,7 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-OPAM_PKGS="ocamlfind gen_js_api"
+OPAM_PKGS="gen_js_api"
 
 export OPAMYES=1
 
