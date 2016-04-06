@@ -1,5 +1,7 @@
 # ocaml-cordova-plugin-camera
 
+* gen_js_api (master branch): [![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-camera.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-camera)
+
 Binding to
 [cordova-plugin-camera](https://github.com/apache/cordova-plugin-camera)
 
