@@ -30,9 +30,32 @@ The js_of_ocaml version is available in the branch
 [*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-camera/tree/js_of_ocaml)
 but we **recommend** to use the gen_js_api version which is the master branch.
 
+## How to install and compile your project by using this plugin ?
+
+Don't forget to switch to a compiler **>= 4.03.0**.
+```Shell
+opam switch 4.03.0+beta1
+```
+
+You can use opam by pinning the repository with
+```Shell
+opam pin add cordova-plugin-camera https://github.com/dannywillems/ocaml-cordova-plugin-camera.git
+```
+
+and to compile your project, use
+```Shell
+ocamlfind ocamlc -c -o [output_file] -package gen_js_api -package cordova-plugin-camera [...] -linkpkg [other arguments]
+```
+
+Don't forget to install the cordova plugin camera with
+```Shell
+cordova plugin add cordova-plugin-camera
+```
+
 ## How to use ?
 
-TODO
+See the official documentation
+[cordova-plugin-camera](https://github.com/apache/cordova-plugin-camera)
 
 ## ! BE CAREFUL !
 
