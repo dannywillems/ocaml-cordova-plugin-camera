@@ -30,7 +30,6 @@ if [ -n "${OPAM_SWITCH}" ]; then
 fi
 eval `opam config env`
 
-opam pin add lwt https://github.com/Drup/lwt.git#4.03.0-no-oasis
 opam install $OPAM_PKGS
 
 export OCAMLRUNPARAM=b
