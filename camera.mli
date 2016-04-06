@@ -190,14 +190,18 @@ class camera : Ojs.t ->
   object
     inherit Ojs.obj
     (* get_picture [success_cb] [error_cb] [options] *)
-    method get_picture  : (string -> unit) ->
-                          (string -> unit) ->
-                          options          ->
-                          unit
+    method get_picture  :   (string -> unit)                                ->
+                            (string -> unit)                                ->
+                            ?opt:(options [@js.default create_options ()])  ->
+                            unit ->
+                            unit
     (* cleanup [success_cb] [error_cb] *)
-    method cleanUp      : (unit -> unit)   ->
-                          (unit -> unit)   ->
-                          unit
+    method clean_up      :  ?succ_cb:((unit -> unit) [@js.default (fun () ->
+                              ())])  ->
+                            ?err_cb:((unit -> unit) [@js.default (fun () ->
+                              ())])  ->
+                            unit ->
+                            unit
   end
 (* -------------------------------------------------------------------------- *)
 
