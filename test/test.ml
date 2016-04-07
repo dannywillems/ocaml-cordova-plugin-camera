@@ -1,1 +1,1 @@
-let t = Camera.t () in t#clean_up ()
+let t = Cordova_camera.t () in t#clean_up ()

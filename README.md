@@ -62,13 +62,13 @@ See the official documentation
 The plugin creates a new object called *navigator.camera*, but the object is
 available when the *deviceready* event is handled.
 
-We provide a function *Camera.t* of type *unit -> camera* which creates the
+We provide a function *Cordova_camera.t* of type *unit -> camera* which creates the
 binding to the *navigator.camera* object. You must call it when the deviceready
 event is handled, eg (with js_of_ocaml)
 
 ```OCaml
 let on_device_ready _ =
-  let camera = Camera.t () in
+  let camera = Cordova_camera.t () in
   (* Some code *)
 
 let _ =
