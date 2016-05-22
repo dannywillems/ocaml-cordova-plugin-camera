@@ -157,7 +157,7 @@ class options : Ojs.t ->
     method media_type           : int
     method correct_orientation  : bool
     method save_to_photo_album  : bool
-    method popover_options      : camera_pop_over_options
+    method popover_options      : camera_pop_over_options option
     method camera_direction     : int
   end
 
@@ -172,11 +172,11 @@ val create_options :
   ?source_type:(picture_source_type [@js.default Camera])               ->
   ?allow_edit:(bool [@js.default true])                                 ->
   ?encoding_type:(encoding_type [@js.default Jpeg])                     ->
-  ?target_width:(int option [@js.default None])                         ->
-  ?target_height:(int option [@js.default None])                        ->
+  ?target_width:(int [@js.default -1])                                  ->
+  ?target_height:(int [@js.default -1])                                 ->
   ?media_type:(media_type [@js.default Picture])                        ->
-  ?correct_orientation:(bool option [@js.default None])                 ->
-  ?save_to_photo_album:(bool option [@js.default None])                 ->
+  ?correct_orientation:(bool [@js.default true])                        ->
+  ?save_to_photo_album:(bool [@js.default true])                        ->
   ?pop_over_options:(camera_pop_over_options option [@js.default None]) ->
   ?camera_direction:(direction [@js.default Back])                      ->
   unit                                                                  ->
