@@ -65,14 +65,14 @@ available when the *deviceready* event is handled.
 
 We provide a function *Cordova_camera.t* of type *unit -> camera* which creates the
 binding to the *navigator.camera* object. You must call it when the deviceready
-event is handled, eg (with js_of_ocaml)
+event is handled.
+By using the [binding to the cordova
+object](https://github.com/dannywillems/ocaml-cordova), you need to use
 
 ```OCaml
-let on_device_ready _ =
+let on_device_ready () =
   let camera = Cordova_camera.t () in
   (* Some code *)
 
-let _ =
-  Dom.addEventListener Dom_html.document (Dom.Event.make "deviceready")
-  (Dom_html.handler on_device_ready) Js._false
+let _ = Cordova.Event.device_ready on_device_ready
 ```
