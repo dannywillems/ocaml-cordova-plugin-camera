@@ -121,15 +121,7 @@ let front = Front
 
 (* -------------------------------------------------------------------------- *)
 (* Interface to the cameraPopoverOptions object *)
-class camera_pop_over_options : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method x          : int
-    method y          : int
-    method width      : int
-    method height     : int
-    method arrow_dir  : int
-  end
+type camera_pop_over_options = private Ojs.t
 
 val create_camera_pop_over_options :
   ?x:int                                                        ->
@@ -144,22 +136,7 @@ val create_camera_pop_over_options :
 
 (* -------------------------------------------------------------------------- *)
 (* Interface to the options javascript object *)
-class options : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method quality              : int
-    method destination_type     : int
-    method source_type          : int
-    method allow_edit           : bool
-    method encoding_type        : int
-    method target_width         : int
-    method target_height        : int
-    method media_type           : int
-    method correct_orientation  : bool
-    method save_to_photo_album  : bool
-    method popover_options      : camera_pop_over_options option
-    method camera_direction     : int
-  end
+type options = private Ojs.t
 
 (* Interface of a function allowing to create an options javascript object.
  * No constructor are given in the camera plugin.
@@ -186,27 +163,23 @@ val create_options :
 
 (* -------------------------------------------------------------------------- *)
 (* Binding to the camera *)
-class camera : Ojs.t ->
-  object
-    inherit Ojs.obj
     (* get_picture [success_cb] [error_cb] [options] *)
-    method get_picture  :   (string -> unit)                                ->
-                            (string -> unit)                                ->
-                            ?opt:(options [@js.default create_options ()])  ->
-                            unit ->
-                            unit
-    (* cleanup [success_cb] [error_cb] *)
-    method clean_up      :  ?succ_cb:((unit -> unit) [@js.default (fun () ->
-                              ())])  ->
-                            ?err_cb:((unit -> unit) [@js.default (fun () ->
-                              ())])  ->
-                            unit ->
-                            unit
-  end
+val get_picture  :  (string -> unit)                                ->
+                    (string -> unit)                                ->
+                    ?opt:(options [@js.default create_options ()])  ->
+                    unit ->
+                    unit
+[@@js.global "navigator.camera.getPicture"]
+
+(* cleanup [success_cb] [error_cb] *)
+val clean_up :
+  ?succ_cb:((unit -> unit) [@js.default (fun () -> ())])  ->
+  ?err_cb:((unit -> unit) [@js.default (fun () -> ())])  ->
+  unit ->
+  unit
+[@@js.global "navigator.camera.cleanUp"]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
 (* Get the navigator.camera object *)
-val t : unit -> camera
-[@@js.get "navigator.camera"]
 (* -------------------------------------------------------------------------- *)
